@@ -38,19 +38,26 @@ logger.warning('Warnig!!')
 #### Sample Config File
 ```conf
 [loggers]
-keys=foo
+keys=root
 
 [handlers]
 keys=kinesisFirehose
 
-[logger_foo]
+[formatters]
+keys=kinesisFirehose
+
+[logger_root]
 level=NOTSET
 handlers=kinesisFirehose
 
 [handler_kinesisFirehose]
 class=kflogs.KinesisFirehoseHandler
-level=INFO
-args=('bar',)
+level=DEBUG
+formatter=kinesisFirehose
+args=('foobar',)
+
+[formatter_kinesisFirehose]
+class=kflogs.SimpleJsonFormatter
 ```
 
 #### Sample output
