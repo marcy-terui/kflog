@@ -35,6 +35,24 @@ logger.addHandler(handler)
 logger.warning('Warnig!!')
 ```
 
+#### Sample Config File
+```conf
+[loggers]
+keys=foo
+
+[handlers]
+keys=kinesisFirehose
+
+[logger_foo]
+level=NOTSET
+handlers=kinesisFirehose
+
+[handler_kinesisFirehose]
+class=kflogs.KinesisFirehoseHandler
+level=INFO
+args=('bar',)
+```
+
 #### Sample output
 ```json
 {
@@ -79,7 +97,8 @@ example:
 Authors
 -------
 
-Created and maintained by [Masashi Terui](https://github.com/marcy-terui) (<marcy9114@gmail.com>)
+Created by [Masashi Terui](https://github.com/marcy-terui) (<marcy9114@gmail.com>)
+Modified by [Chris Wordsworth](https://github.com/cmw278)
 
 License
 -------
