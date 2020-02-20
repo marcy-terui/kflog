@@ -54,4 +54,4 @@ class SimpleJsonFormatter(logging.Formatter):
             if attr == 'stack_info' and value is not None:
                 value = self.formatStack(value)
             ret[attr] = value
-        return json.dumps(ret)
+        return json.dumps(ret) + '\n'
